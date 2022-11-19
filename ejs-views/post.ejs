@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/nav.ejs') %>
+    </header>
+    <main>
+        <div class="p1">
+            <div class="btncont">
+                <a href="/edit/<%= post.id %>">Edit</a>
+                <button data-id="<%= post.id%>">Delite</button>
+            </div>
+            <div class="sp">
+                <span><%= post.createdAt.toLocaleDateString()%></span>
+                <span><%= post.author%></span>
+            </div>
+            <div><%= post.title%></div>
+        <p><%= post.text%></p>
+        </div>
+    </main>
+    <Footer></Footer>
+</body>
+</html>
+
+<script>
+    document.addEventListener('click', (e)=>{
+        let id = e.target?.dataset?.id || null;
+        if (id) {
+            fetch(`/posts/${id}`, {
+                method: 'DELETE',
+            }).then (()=> {
+                window.location.href='/posts';
+            })
+        };
+    });
+</script>

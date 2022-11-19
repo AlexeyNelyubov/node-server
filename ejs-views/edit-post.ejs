@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('./partials/nav.ejs') %>
+    </header>
+    <main>
+        <form class="post-form" method="post" action="/edit/<%= post.id %>?_method=PUT">
+            <div class="form-info">
+                <label> Post title:<br>
+                    <input type="text" name="title" value="<%= post.title %>">
+                </label>
+                <label> Post author:<br>
+                    <input type="text" name="author" value="<%= post.author %>">
+                </label>
+            </div>
+            <div class="form-text">
+                <label> Post text:<br>
+                    <textarea name="text"><%= post.text %></textarea>
+                </label>
+            </div>  
+            <div class="form-button">
+                <input type="submit" value="Submit">
+            </div>
+            
+        </form>
+    </main>
+    <Footer></Footer>
+</body>
+</html>
