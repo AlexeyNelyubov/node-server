@@ -12,7 +12,8 @@ const createPath = require('./helpers/create-path');
 const app = express();
 app.set('view engine', 'ejs');
 
-const db = 'mongodb://localhost:27017/node-blog';
+//const db = 'mongodb://localhost:27017/node-blog';
+const db = 'mongodb://127.0.0.1:27017/node-blog';
 //const db = 'mongodb+srv://Alexey:KERZAKOV@cluster0.n0qxstw.mongodb.net/node-block?retryWrites=true&w=majority';
 
 mongoose
